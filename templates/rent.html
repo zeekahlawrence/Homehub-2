@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+
+</head>
+<body class="bg-light">
+
+    {%with messages = get_flashed_messages()%}
+        {% if messages %}
+            {% for messages in messages %}
+                <div class = "alert alert-danger">{{messages}}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="r1 container-fluid py-2 px-4">
+        <div class="r1c1">
+           <h2> HomeHub</h2>
+        </div>
+
+        <div class="r1c2">
+          {% if 'user_id' in session %}
+            <a href="{{ url_for('logout') }}">Sign out</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <div class="r2">
+        <div class="menu-toggle" id="menu-toggle">
+            ☰
+        </div>
+        <nav class="nav-links" id="nav-links">
+        <a href="{{url_for('home')}}">Home</a>
+        <a href="{{url_for('buy')}}">Buy</a>
+        <a href="{{url_for('sell')}}">Sell</a>
+        <a href="{{url_for('rent')}}">Rent</a>
+        </nav>
+    </div>
+
+    <div class="container py-5">
+        <h2 class="text-center head mb-4 fw-bold">Rent your property</h2>
+
+        <div class="card shadow p-4">
+
+            <form action="{{url_for('rent')}}" method="POST" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="fullname" class="form-label head">Full Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your full name" name="fname" required>
+                    </div> 
+                    <div class="col-md-6">
+                        <label for="email" class="form-label head">Email Address</label>
+                        <input type="email" class="form-control" placeholder="Enter your Email" name="mail" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for ="phonenumber" class="form-label head"> Phone Number</label>
+                        <input type="text" class="form-control" placeholder="eg. 08035040559" name="pnum" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="propertytype" class="form-label head">Property Type</label>
+                        <select  id="" class="form-select" name="htype" required>
+                        <option selected disabled> Select Type</option>
+                        <option> Apartment</option>
+                        <option> Duplex</option>
+                        <option> Bungalow</option>
+                        <option> Land</option>
+                        <option> Comercial property</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="propertyaddress" class="form-label head">Property Address</label>
+                        <input type="text" class="form-control head" placeholder="Enter Full Address" name="address">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="price" class="form-label head ">Price (₦)</label>
+                        <input type="text" class="form-control" placeholder="Enter price" name='price' required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="bedrooms" class="form-label head ">Bedrooms</label>
+                        <input type="text" class="form-control" placeholder="eg. 3" name="bedroom" required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="bathrooms" class="form-label head ">Bathrooms</label>
+                        <input type="text" class="form-control" placeholder="eg. 2" name = "bathroom" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label head">Property Description</label>
+                    <textarea class="form-control" rows="4" placeholder="Describe the property..." name = "description"></textarea>
+                </div>
+
+        <!-- Row 6 -->
+                <div class="mb-4">
+                    <label class="form-label head">Upload Property Images</label>
+                    <input type="file" class="form-control" name="images" multiple required>
+                    <small class="text-muted">You can upload multiple images</small>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary  px-4 py-2 ">Submit Property</button>
+                </div>
+        </form>
+        </div>
+    </div>
+
+   <div class="container my-5">
+    <h1 class="mb-4">Available Properties</h1>
+
+    <div class="row">
+    {% for p in properties %}
+    <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div id="carousel{{ p.id }}" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% for img in p.images.split(',') %}
+    <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+      <img src="{{ url_for('static', filename='uploads/' + img) }}" 
+           class="d-block w-100" 
+           style="height: 220px; object-fit: cover;" 
+           alt="Property Image">
+    </div>
+    {% endfor %}
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ p.id }}" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ p.id }}" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+            <div class="card-body">
+                <h5 class="card-title">₦{{ p.price }}</h5>
+                <p class="card-text">{{ p.address }}</p>
+                <a href="{{ url_for('property_details', id=p.id) }}"
+                   class="btn btn-primary btn-sm">
+                    View Details
+                </a>
+
+                <a href="{{ url_for('delete_rent_property', id=p.id) }}"
+                onclick="return confirm('Are you sure?');"
+                class="btn btn-danger btn-sm">
+                Delete
+                </a>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+</div>
+
+
+    <script>
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
+</script>
+</body>
+</html>

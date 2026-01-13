@@ -1,0 +1,277 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.r1{
+    background-color: #003152;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.r1c2 a{
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    margin:5px 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition:  all 0.3s ease;
+
+}
+
+.r1c2 a:hover{
+    background-color: antiquewhite;
+    color: #003152;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.r2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 5px;
+  ;
+}
+
+.nav-links{
+    display: flex;
+    gap: 220px;
+
+}
+.nav-links a{
+    text-decoration: none;
+    color:#003152;
+    font-weight: 500px;
+    transition:all 0.3s ease;
+     
+    
+    
+}
+
+.nav-links a:hover{
+    background-color: #003152;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.menu-toggle{
+    display:none;
+    font-size: 28px;
+    cursor:pointer;
+    color:#003152;
+    
+}
+
+
+
+.hero{
+    background-image: url("../img/house2.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh ;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    padding: 20px;
+
+}
+
+.hero h1{
+    font-size: 50px;
+    margin-bottom: 20px
+}
+
+.btn{
+    background-color: #003152;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.he a{
+    color: white;
+    text-decoration: none;
+}
+
+.he a:hover{
+    background-color: antiquewhite;
+    color: #003152;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+@media (max-width: 992px){
+    .hero h1{
+        font-size: 38px;
+    }
+
+    .r1c2 a{
+        margin:5px;
+    }
+}
+
+@media (max-width: 768px){
+    .r1{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .r1c2{
+        justify-content: center;
+    }
+
+    .r2{
+        font-size: 20px;
+        align-items: center;
+        gap:15px;
+    }
+
+    .hero{
+        min-height: 50vh;
+        padding: 30px 10px;
+
+    }
+
+    .hero{
+        font-size: 30px;
+    }
+
+    .hero input[type="search"]{
+        width: 80%;
+    }
+
+    .hero button{
+        width: 20%;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+}
+
+@media(max-width: 480px){
+    .hero h1{
+        font-size:24px;
+    }
+
+    .hero input[type="search"]{
+        width:90;
+    }
+
+    .hero button{
+        width: 20%;
+    }
+
+    
+}
+
+/*register page*/
+
+.register-page{
+    background-image: url('../img/house3.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height:100vh;
+}
+
+.register-page::before {
+    content: "";
+    position: fixed;      /* stays fixed while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;   /* use the same background */
+    background-size: inherit;
+    background-position: inherit;
+    filter: blur(px);
+    z-index: -1;          /* sits behind all content */
+}
+
+.container{
+    border-radius: 10px;
+    }
+
+.buy{
+    background-image: url("../img/nh.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.head{
+    color: #003152;
+}
+
+.btn-primary{
+    background-color: #003152;
+
+}
+
+.btn-primary:hover{
+    background-color: #022d36;
+}
+input.form-control::placeholder{
+    color: #003152;
+}
+
+.width{
+    width:40%;
+}
+
+@media(max-width: 480px){
+    .width{
+        width: 80%;
+    }
+}
+
+.register a{
+text-decoration: none;
+border: 1px solid #003152;
+padding:10px;
+background-color: #003152;
+color: white;
+border-radius: 5px;
+
+}
+
+.register a:hover{
+    background-color: #022d36;
+}
+
+.wid{
+   width: 90% 
+}
+
+.property-card {
+    width: 100%;
+    max-width: 320px;
+}
+
+.property-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover; /* KEY LINE */
+}
