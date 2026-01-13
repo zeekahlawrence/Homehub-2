@@ -39,7 +39,13 @@ body{
   ;
 }
 
-
+.r2hr a{
+    color:#022d36;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 5px;
+}
 
 
 
