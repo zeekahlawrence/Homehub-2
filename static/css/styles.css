@@ -39,27 +39,7 @@ body{
   ;
 }
 
-.nav-links{
-    display: flex;
-    gap: 220px;
 
-}
-.nav-links a{
-    text-decoration: none;
-    color:#003152;
-    font-weight: 500px;
-    transition:all 0.3s ease;
-     
-    
-    
-}
-
-.nav-links a:hover{
-    background-color: #003152;
-    color: white;
-    border-radius: 5px;
-    padding: 5px;
-}
 
 
 
@@ -150,17 +130,7 @@ body{
 
    
 
-    .nav-links{
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .nav-links.show{
-        display:flex;
-    }
+    
 }
 
 @media(max-width: 480px){
