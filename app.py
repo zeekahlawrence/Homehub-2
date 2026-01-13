@@ -61,7 +61,7 @@ class Rentproperty(db.Model):
 with app.app_context():
     db.create_all()
 
-@app.route('/home')
+@app.route('/')
 def home():
 
    
