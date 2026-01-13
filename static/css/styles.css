@@ -61,13 +61,7 @@ body{
     padding: 5px;
 }
 
-.menu-toggle{
-    display:none;
-    font-size: 28px;
-    cursor:pointer;
-    color:#003152;
-    
-}
+
 
 
 
@@ -154,9 +148,7 @@ body{
         width: 20%;
     }
 
-    .menu-toggle{
-        display:block;
-    }
+   
 
     .nav-links{
         display: none;
