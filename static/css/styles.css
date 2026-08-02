@@ -36,15 +36,31 @@ body{
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 5px;
-  ;
+   
+}
+
+.r2hr{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .r2hr a{
     color:#022d36;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 5px;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.r2hr a:hover{
+    background-color: antiquewhite;
+    color: #003152;
+    border-radius: 5px;
+}
+
+.p1{
+    padding-left: 5rem ;
 }
 
 
@@ -78,7 +94,7 @@ body{
 }
 
 .he a{
-    color: white;
+    color: white ;
     text-decoration: none;
 }
 
